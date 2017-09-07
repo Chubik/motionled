@@ -9,15 +9,12 @@ import (
 	"periph.io/x/periph/host"
 )
 
-var (
-	gpioIN  string
-	gpioOUT string
-)
-
 func main() {
-	fmt.Println("Initialization...")
-	gpioIN = "17"
-	gpioOUT = "26"
+	//Config Init
+	Conf.Init()
+
+	gpioIN := Conf.In
+	gpioOUT := Conf.Out
 	//TODO: periph states status
 	if _, err := host.Init(); err != nil {
 		log.Fatal(err)
